@@ -31,6 +31,13 @@ def main():
             mes = messages.inf(per)
             bot.send_message(message.chat.id,mes)
             print('Message sent')
+        if message.text == keyboard.bttn_info:
+            mes = bot.send_message(call.message.chat.id, messages.tr)
+            bot.register_next_step_handler(mes,trans)
+
+    def trans(mes):
+        return mes.from_user.username, mes.text
+
 
 
 
